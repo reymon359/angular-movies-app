@@ -6,17 +6,21 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { SearchComponent } from './components/search/search.component';
+import { APP_ROUTING } from './app.routes';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    MovieComponent
+    MovieComponent,
+    SearchComponent 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
