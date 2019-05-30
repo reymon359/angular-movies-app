@@ -10,24 +10,24 @@
 
     <h1>Movies in theaters</h1>
     <hr>
-    <div class="row">
+    <div class="row" *ngIf="onTheaters">
         <div class="col-sm-6">
             <div class="row">
-                <div class="col-md-12 div-pic-1" [ngStyle]="{'background-image': 'url( )'}"></div>
+                <div class="col-md-12 div-pic-1" [ngStyle]="{'background-image': 'url('+ (onTheaters[0] | movieImg ) +' )' }"></div>
             </div>
             <div class="row">
-                <div class="col-sm-6 div-pic-2"> </div>
-                <div class="col-sm-6 div-pic-2"> </div>
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image': 'url('+ (onTheaters[1] | movieImg ) +' )' }"> </div>
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image': 'url('+ (onTheaters[2] | movieImg ) +' )' }"> </div>
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="row">
-                <div class="col-sm-6 div-pic-2"> </div>
-                <div class="col-sm-6 div-pic-2"> </div>
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image': 'url('+ (onTheaters[3] | movieImg ) +' )' }"> </div>
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image': 'url('+ (onTheaters[4] | movieImg ) +' )' }"> </div>
             </div>
             <div class="row">
-                <div class="col-md-12 div-pic-1" [ngStyle]="{'background-image': 'url( )'}"></div>
+                <div class="col-md-12 div-pic-1" [ngStyle]="{'background-image': 'url('+ (onTheaters[5] | movieImg ) +' )' }"></div>
             </div>
         </div>
 

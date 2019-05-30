@@ -8,12 +8,17 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public moviesService: MoviesService) {
-    
-    this.moviesService.getTheatres()
-    .subscribe(data)
+  onTheaters: any;
 
-   }
+  constructor(public moviesService: MoviesService) {
+
+    this.moviesService.moviesinTheatres()
+      .subscribe(data => {
+        console.log(data) ;
+        this.onTheaters = data.results;
+      })
+
+  }
 
   ngOnInit() {
   }

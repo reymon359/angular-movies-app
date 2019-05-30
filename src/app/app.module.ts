@@ -1,20 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
+// Components
+import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { SearchComponent } from './components/search/search.component';
+
+// Routing
 import { APP_ROUTING } from './app.routes';
+
+// Pipes
+import { MovieImgPipe } from './pipes/movie-img.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
     MovieComponent,
-    SearchComponent 
+    SearchComponent,
+    MovieImgPipe 
   ],
   imports: [
     BrowserModule,
