@@ -7,15 +7,31 @@ import { HttpClient } from '@angular/common/http';
 export class MoviesService {
 
   private apiKey = 'MY_API_KEY';
+
   private urlMoviedb = 'https://api.themoviedb.org/3';
-  
+
   constructor(private http: HttpClient) { }
 
-  getMostPopular(){
+  getTheatres() {
+    let fromDate = new Date();
+    let toDate = new Date();
+    toDate.setDate(fromDate.getDate() + 7);
 
-      let url = `${ this.urlMoviedb }/discover/movie?sort_by=popularity.desc&api_key=${ this.apiKey }&language=es&callback=JSONP_CALLBACK`;
+    let fromDateStr = `${fromDate.getFullYear()}-${fromDate.getMonth() + 1}-${fromDate.getDate()}`;
+    let toDateStr = `${toDate.getFullYear()}-${toDate.getMonth() + 1}-${toDate.getDate()}`;
 
-      return this.http.jsonp(url,'JSONP_CALLBACK');
+    let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${fromDateStr}&primary_release_date.lte=${toDateStr}&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
+
+
+
+  getMostPopular() {
+
+    let url = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
 
   }
 }
