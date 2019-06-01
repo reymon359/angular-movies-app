@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MoviesService {
 
-private apiKey = 'MY_API_KEY';
+  private apiKey = 'MY_API_KEY';
 
 
   private urlMoviedb = 'https://api.themoviedb.org/3';
@@ -24,7 +24,6 @@ private apiKey = 'MY_API_KEY';
 
     // tslint:disable-next-line:max-line-length
     const url = `${this.urlMoviedb}/discover/tv?primary_release_date.gte=${fromDateStr}&primary_release_date.lte=${toDateStr}&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
-
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 

@@ -14,6 +14,7 @@ import { APP_ROUTING } from './app.routes';
 
 // Pipes
 import { MovieImgPipe } from './pipes/movie-img.pipe';
+import { GalleryComponent } from './components/home/gallery.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { MovieImgPipe } from './pipes/movie-img.pipe';
     HomeComponent,
     MovieComponent,
     SearchComponent,
-    MovieImgPipe 
+    MovieImgPipe,
+    GalleryComponent 
   ],
   imports: [
     BrowserModule,

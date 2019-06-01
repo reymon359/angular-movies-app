@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(public moviesService: MoviesService) {
 
     this.moviesService.moviesinTheatres()
-      .subscribe(data => {
+      .subscribe((data: any) => {
         console.log(data) ;
         this.onTheaters = data.results;
       })
