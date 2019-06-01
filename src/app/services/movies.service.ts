@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MoviesService {
 
-   private apiKey = 'MY_API_KEY';
+  private apiKey = 'MY_API_KEY';
 
   private urlMoviedb = 'https://api.themoviedb.org/3';
 
@@ -18,9 +18,9 @@ export class MoviesService {
   search(text: string) {
     // tslint:disable-next-line:max-line-length
     const url = `${this.urlMoviedb}/search/multi?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
-    this.http.jsonp(url, 'JSONP_CALLBACK').subscribe((data: any) => this.searchResults = data.results);
-    console.log(this.searchResults);
-    return this.http.jsonp(url, 'JSONP_CALLBACK');
+    this.http.jsonp(url, 'JSONP_CALLBACK').subscribe((data: any) =>{ console.log(data); this.searchResults = data.results;});
+    
+    // return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
   showsOnTv() {

@@ -14,11 +14,31 @@
     <div class="row">
         <div class="card-columns">
             <div class="card" *ngFor="let item  of moviesService.searchResults">
-                <img class="card-img-top" [src]="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title that wraps to a new line</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                <!-- TV  shows -->
+                <img *ngIf="item.media_type=='tv'" class="card-img-top" [src]="item | movieImg " [alt]="item.original_name">
+                <div *ngIf="item.media_type=='tv'" class="card-body">
+                    <h5 class="card-title">{{item.original_name}}</h5>
+                    <p class="card-text text-justify">{{item.overview | slice:0:250}}...</p>
+                    <button type="button" class="btn btn-outline-primary btn-block ">See more</button>
                 </div>
+
+                <!-- Movies -->
+                <img *ngIf="item.media_type=='movie'" class="card-img-top" [src]="item | movieImg " [alt]="item.original_title">
+                <div *ngIf="item.media_type=='movie'" class="card-body">
+                    <h5 class="card-title">{{item.original_title}}</h5>
+                    <p class="card-text text-justify">{{item.overview | slice:0:250}}...</p>
+                    <button type="button" class="btn btn-outline-primary btn-block ">See more</button>
+
+                </div>
+
+                <!-- Persons -->
+                <img *ngIf="item.media_type=='person'" class="card-img-top" [src]="item | movieImg " [alt]="item.name">
+                <div *ngIf="item.media_type=='person'" class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p *ngFor="let subItem of item.known_for" class="card-text ">{{subItem.title}}</p>
+                </div>
+
             </div>
         </div>
     </div>
