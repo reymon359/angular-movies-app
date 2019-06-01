@@ -10,7 +10,6 @@ export class MoviesService {
 
   private urlMoviedb = 'https://api.themoviedb.org/3';
 
-  movies: any[] = [];
   searchResults: any[] = [];
 
   constructor(private http: HttpClient) { }
@@ -42,14 +41,6 @@ export class MoviesService {
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
-  searchShow(text: string) {
-    // tslint:disable-next-line:max-line-length
-    const url = `${this.urlMoviedb}/search/tv?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
-    return this.http.jsonp(url, 'JSONP_CALLBACK');
-  }
-
-
-
   moviesinTheatres() {
     const fromDate = new Date();
     const toDate = new Date();
@@ -66,12 +57,6 @@ export class MoviesService {
 
   popularMovies() {
     const url = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
-    return this.http.jsonp(url, 'JSONP_CALLBACK');
-  }
-
-  searchMovie(text: string) {
-    // tslint:disable-next-line:max-line-length
-    const url = `${this.urlMoviedb}/search/movie?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
