@@ -6,12 +6,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MoviesService {
 
-  private apiKey = 'MY_API_KEY';
+   private apiKey = 'MY_API_KEY';
 
   private urlMoviedb = 'https://api.themoviedb.org/3';
 
+  movies: any[] = [];
+  searchResults: any[] = [];
+
   constructor(private http: HttpClient) { }
 
+  search(text: string) {
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.urlMoviedb}/search/multi?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+    this.http.jsonp(url, 'JSONP_CALLBACK').subscribe((data: any) => this.searchResults = data.results);
+    console.log(this.searchResults);
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
 
   showsOnTv() {
     const fromDate = new Date();
@@ -32,6 +42,14 @@ export class MoviesService {
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
+  searchShow(text: string) {
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.urlMoviedb}/search/tv?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
+
+
+
   moviesinTheatres() {
     const fromDate = new Date();
     const toDate = new Date();
@@ -48,6 +66,12 @@ export class MoviesService {
 
   popularMovies() {
     const url = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
+
+  searchMovie(text: string) {
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.urlMoviedb}/search/movie?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 

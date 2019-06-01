@@ -1,3 +1,26 @@
-<p>
-  search works!
-</p>
+<div class="container main-container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label> Search:</label>
+                <input (keyup.enter)="searchMovieOrShow()" [(ngModel)]="search" class="form-control" type="text" name="search" placeholder="Search a movie or TV show">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="card-columns">
+            <div class="card" *ngFor="let item  of moviesService.searchResults">
+                <img class="card-img-top" [src]="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title that wraps to a new line</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
