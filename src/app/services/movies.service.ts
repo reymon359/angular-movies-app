@@ -18,7 +18,7 @@ export class MoviesService {
   search(text: string) {
     // tslint:disable-next-line:max-line-length
     const url = `${this.urlMoviedb}/search/multi?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
-    this.http.jsonp(url, 'JSONP_CALLBACK').subscribe((data: any) =>{ console.log(data); this.searchResults = data.results;});
+    this.http.jsonp(url, 'JSONP_CALLBACK').subscribe((data: any) => this.searchResults = data.results);
     
     // return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
