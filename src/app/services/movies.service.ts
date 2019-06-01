@@ -8,7 +8,6 @@ export class MoviesService {
 
   private apiKey = 'MY_API_KEY';
 
-
   private urlMoviedb = 'https://api.themoviedb.org/3';
 
   constructor(private http: HttpClient) { }
@@ -23,7 +22,8 @@ export class MoviesService {
     const toDateStr = `${toDate.getFullYear()}-${toDate.getMonth() + 1}-${toDate.getDate()}`;
 
     // tslint:disable-next-line:max-line-length
-    const url = `${this.urlMoviedb}/discover/tv?primary_release_date.gte=${fromDateStr}&primary_release_date.lte=${toDateStr}&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+    // const url = `${this.urlMoviedb}/discover/tv?primary_release_date.gte=${fromDateStr}&primary_release_date.lte=${toDateStr}&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+    const url = `${this.urlMoviedb}/tv/on_the_air?api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
@@ -51,11 +51,4 @@ export class MoviesService {
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
-  getMostPopular() {
-
-    const url = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
-
-    return this.http.jsonp(url, 'JSONP_CALLBACK');
-
-  }
 }

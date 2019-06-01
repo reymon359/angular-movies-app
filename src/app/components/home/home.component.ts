@@ -8,16 +8,28 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class HomeComponent implements OnInit {
 
-  onTheaters: any;
+  moviesonTheaters: any;
+  popularmovies: any;
+
+  showsOnTv: any;
+  popularShows: any;
 
   constructor(public moviesService: MoviesService) {
-
+    // Getting the movies in Theaters
     this.moviesService.moviesinTheatres()
-      .subscribe((data: any) => {
-        console.log(data) ;
-        this.onTheaters = data.results;
-      })
+      .subscribe((data: any) => this.moviesonTheaters = data.results);
 
+    // Getting the most popular movies
+    this.moviesService.popularMovies()
+      .subscribe((data: any) => this.popularmovies = data.results);
+
+    // Getting the shows on TV
+    this.moviesService.showsOnTv()
+      .subscribe((data: any) => this.showsOnTv = data.results);
+
+    // Getting the most popular shows
+    this.moviesService.popularShows()
+      .subscribe((data: any) => this.popularShows = data.results);
   }
 
   ngOnInit() {

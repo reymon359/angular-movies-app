@@ -8,6 +8,9 @@
 <div class="container">
     <br>
 
-    <app-gallery [galleryData]="onTheaters|slice:0:6" titleData="Movies on Theaters"></app-gallery>
+    <app-gallery [galleryData]="moviesonTheaters|slice:0:6" titleData="Movies on Theaters"></app-gallery>
+    <app-gallery [galleryData]="popularmovies|slice:0:6" titleData="Popular Movies"></app-gallery>
+    <app-gallery [galleryData]="showsOnTv|slice:0:6" titleData="Shows on TV"></app-gallery>
+    <app-gallery [galleryData]="popularShows|slice:0:6" titleData="Popular Shows"></app-gallery>
 
 </div>
