@@ -30,9 +30,17 @@ export class HomeComponent implements OnInit {
     // Getting the most popular shows
     this.moviesService.popularShows()
       .subscribe((data: any) => this.popularShows = data.results);
+ 
   }
 
-  ngOnInit() {
+  ngOnInit() {   
+    setTimeout(() => {
+      
+      console.log(this.popularShows);
+      console.log(this.popularmovies);
+      console.log(this.moviesonTheaters);
+      console.log(this.showsOnTv);
+    }, 1000);  
   }
 
 }

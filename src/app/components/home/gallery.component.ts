@@ -9,8 +9,9 @@ export class GalleryComponent implements OnInit {
 
   @Input('titleData') titleData; 
   @Input('galleryData') galleryData; 
-
-  constructor() { }
+  
+  constructor() {
+   }
  
   ngOnInit() {
   }
