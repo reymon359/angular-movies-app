@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MoviesService {
 
-   private apiKey = 'MY_API_KEY';
+  private apiKey = 'MY_API_KEY';
 
   private urlMoviedb = 'https://api.themoviedb.org/3';
 
