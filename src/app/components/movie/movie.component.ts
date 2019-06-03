@@ -8,17 +8,28 @@ import { MoviesService } from '../../services/movies.service';
   styles: []
 })
 export class MovieComponent implements OnInit {
-  
-
-  showOrMovie:any;
 
 
-  constructor(public moviesService: MoviesService , public route: ActivatedRoute) {
+  showOrMovie: any;
+
+
+  constructor(public moviesService: MoviesService, public route: ActivatedRoute) {
 
     this.route.params.subscribe(params => {
       console.log(params);
-        // this.search = params['text'];
-        // this.searchMovieOrShow();
+      if (params['shormo'] === 'show') {
+        this.moviesService.getShow(params['id'])
+          .subscribe(data => {
+          this.showOrMovie = data;
+          console.log(this.showOrMovie);
+          })
+      } else if (params['shormo'] === 'movie') {
+        this.moviesService.getMovie(params['id'])
+          .subscribe(data => {
+          this.showOrMovie = data;
+          console.log(this.showOrMovie);
+          })
+      }
     })
 
   }

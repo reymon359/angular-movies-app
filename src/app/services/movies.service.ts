@@ -18,8 +18,12 @@ export class MoviesService {
     // tslint:disable-next-line:max-line-length
     const url = `${this.urlMoviedb}/search/multi?query=${text}&sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
     this.http.jsonp(url, 'JSONP_CALLBACK').subscribe((data: any) => this.searchResults = data.results);
-    
-    // return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
+
+  getShow(id: string) {
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.urlMoviedb}/tv/${id}?api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
   showsOnTv() {
@@ -38,6 +42,12 @@ export class MoviesService {
 
   popularShows() {
     const url = `${this.urlMoviedb}/discover/tv?sort_by=popularity.desc&api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
+    return this.http.jsonp(url, 'JSONP_CALLBACK');
+  }
+
+  getMovie(id: string) {
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.urlMoviedb}/movie/${id}?api_key=${this.apiKey}&language=en&callback=JSONP_CALLBACK`;
     return this.http.jsonp(url, 'JSONP_CALLBACK');
   }
 
