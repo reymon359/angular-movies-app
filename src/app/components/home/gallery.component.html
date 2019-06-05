@@ -4,12 +4,19 @@
 <div class="row animated fadeIn fast" *ngIf="galleryData">
     <div class="col-sm-6">
         <div class="row">
-            <div class="col-md-12 div-pic-1 pointer" [routerLink]="!galleryData[1].first_air_date?['/movie',galleryData[0].id,'movie', 'home']:['/movie',galleryData[0].id,'show', 'home']" routerLinkActive="router-link-active" [ngStyle]="{'background-image': 'url('+ (galleryData[0] | movieImg ) +' )' }"></div>
+            <div class="col-md-12 div-pic-1 pointer" [routerLink]="!galleryData[1].first_air_date?['/movie',galleryData[0].id,'movie', 'home']:['/movie',galleryData[0].id,'show', 'home']" routerLinkActive="router-link-active" [ngStyle]="{'background-image': 'url('+ (galleryData[0] | movieImg ) +' )' }">
+                <p *ngIf="!galleryData[0].first_air_date" class="pic-title">{{galleryData[0].title}}</p>
+                <p *ngIf="galleryData[0].first_air_date" class="pic-title">{{galleryData[0].name}}</p>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-6 div-pic-2 pointer" [routerLink]="!galleryData[1].first_air_date?['/movie',galleryData[1].id, 'movie','home']:['/movie',galleryData[1].id, 'show','home']" [ngStyle]="{'background-image': 'url('+ (galleryData[1] | movieImg ) +' )' }">
+                <p *ngIf="!galleryData[1].first_air_date" class="pic-title">{{galleryData[1].title}}</p>
+                <p *ngIf="galleryData[1].first_air_date" class="pic-title">{{galleryData[1].name}}</p>
             </div>
             <div class="col-sm-6 div-pic-2 pointer" [routerLink]="!galleryData[2].first_air_date?['/movie',galleryData[2].id, 'movie','home']:['/movie',galleryData[2].id, 'show','home']" [ngStyle]="{'background-image': 'url('+ (galleryData[2] | movieImg ) +' )' }">
+                <p *ngIf="!galleryData[2].first_air_date" class="pic-title">{{galleryData[2].title}}</p>
+                <p *ngIf="galleryData[2].first_air_date" class="pic-title">{{galleryData[2].name}}</p>
             </div>
         </div>
     </div>
@@ -17,12 +24,19 @@
     <div class="col-sm-6">
         <div class="row">
             <div class="col-sm-6 div-pic-2 pointer" [routerLink]="!galleryData[3].first_air_date?['/movie',galleryData[3].id, 'movie','home']:['/movie',galleryData[3].id, 'show','home']" [ngStyle]="{'background-image': 'url('+ (galleryData[3] | movieImg ) +' )' }">
+                <p *ngIf="!galleryData[3].first_air_date" class="pic-title">{{galleryData[3].title}}</p>
+                <p *ngIf="galleryData[3].first_air_date" class="pic-title">{{galleryData[3].name}}</p>
             </div>
             <div class="col-sm-6 div-pic-2 pointer" [routerLink]="!galleryData[4].first_air_date?['/movie',galleryData[4].id, 'movie','home']:['/movie',galleryData[4].id, 'show','home']" [ngStyle]="{'background-image': 'url('+ (galleryData[4] | movieImg ) +' )' }">
+                <p *ngIf="!galleryData[4].first_air_date" class="pic-title">{{galleryData[4].title}}</p>
+                <p *ngIf="galleryData[4].first_air_date" class="pic-title">{{galleryData[4].name}}</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 div-pic-1 pointer" [routerLink]="!galleryData[5].first_air_date?['/movie',galleryData[5].id, 'movie','home']:['/movie',galleryData[5].id, 'show','home']" [ngStyle]="{'background-image': 'url('+ (galleryData[5] | movieImg ) +' )' }"></div>
+            <div class="col-md-12 div-pic-1 pointer" [routerLink]="!galleryData[5].first_air_date?['/movie',galleryData[5].id, 'movie','home']:['/movie',galleryData[5].id, 'show','home']" [ngStyle]="{'background-image': 'url('+ (galleryData[5] | movieImg ) +' )' }">
+                <p *ngIf="!galleryData[5].first_air_date" class="pic-title">{{galleryData[5].title}}</p>
+                <p *ngIf="galleryData[5].first_air_date" class="pic-title">{{galleryData[5].name}}</p>
+            </div>
         </div>
     </div>
 </div>
