@@ -12,7 +12,7 @@
             <p class="text-justify">{{showOrMovie.overview}}</p>
             <p> Seasons: <span class="badge badge-primary">{{showOrMovie.number_of_seasons}}</span> </p>
             <p> Score: <span class="badge badge-primary">{{ showOrMovie.vote_average}}/10</span> </p>
-            <button [routerLink]="['/'+this.route.params['page']]" routerLinkActive="router-link-active" type="button" class="btn btn-outline-danger">Back</button>
+            <button [routerLink]="['/'+goBack, search]" routerLinkActive="router-link-active" type="button" class="btn btn-outline-danger">Back</button>
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
             <p class="text-justify">{{showOrMovie.overview}}</p>
             <p>{{showOrMovie.tagline}}</p>
             <p> Score: <span class="badge badge-primary">{{ showOrMovie.vote_average}}/10</span> </p>
-            <button [routerLink]="['/'+this.route.params['page']]" routerLinkActive="router-link-active" type="button" class="btn btn-outline-danger">Back</button>
+            <button [routerLink]="['/'+goBack, search]" routerLinkActive="router-link-active" type="button" class="btn btn-outline-danger">Back</button>
         </div>
     </div>
 </div>

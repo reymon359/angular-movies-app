@@ -11,12 +11,20 @@ export class MovieComponent implements OnInit {
 
 
   showOrMovie: any;
+  goBack: string;
+  search:string;
 
 
   constructor(public moviesService: MoviesService, public route: ActivatedRoute) {
 
     this.route.params.subscribe(params => {
       console.log(params);
+      this.goBack = params['page'];
+
+      if(params['search']){
+        this.search = params['search'];
+      }
+
       if (params['shormo'] === 'show') {
         this.moviesService.getShow(params['id'])
           .subscribe(data => {

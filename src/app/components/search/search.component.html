@@ -11,7 +11,7 @@
     </div>
 
 
-    <div class="row">
+    <div class="row animated fadeIn">
         <div class="card-columns">
             <div class="card" *ngFor="let item  of moviesService.searchResults">
 
@@ -20,7 +20,7 @@
                 <div *ngIf="item.media_type=='tv'" class="card-body">
                     <h5 class="card-title">{{item.original_name}}</h5>
                     <p class="card-text text-justify">{{item.overview | slice:0:250}}...</p>
-                    <button type="button" class="btn btn-outline-primary btn-block ">See more</button>
+                    <button [routerLink]="['/movie', item.id, 'show','search', search]" type="button" class="btn btn-outline-primary btn-block ">See more</button>
                 </div>
 
                 <!-- Movies -->
@@ -28,7 +28,7 @@
                 <div *ngIf="item.media_type=='movie'" class="card-body">
                     <h5 class="card-title">{{item.original_title}}</h5>
                     <p class="card-text text-justify">{{item.overview | slice:0:250}}...</p>
-                    <button type="button" class="btn btn-outline-primary btn-block ">See more</button>
+                    <button [routerLink]="['/movie', item.id, 'movie','search', search]" type="button" class="btn btn-outline-primary btn-block ">See more</button>
 
                 </div>
 
